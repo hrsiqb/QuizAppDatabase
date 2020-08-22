@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz app</title>
+    
+	<link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--Animate CSS-->
+	<link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCspOHaoIOdm7iYVeyRer4QnH7Vdke-zjU",
+        authDomain: "quizapp-fe824.firebaseapp.com",
+        databaseURL: "https://quizapp-fe824.firebaseio.com",
+        projectId: "quizapp-fe824",
+        storageBucket: "quizapp-fe824.appspot.com",
+        messagingSenderId: "497302721640",
+        appId: "1:497302721640:web:a3768add09bf7d367b17dd",
+        measurementId: "G-7J78LWPZR6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <div id="mainDiv">
+        <div id="loaderDiv">
+            <div id="loader" class="spinner-border"></div>
+        </div>
+        <!-- ===============Admin Panel============== -->
+        <div id="mainPanel" style="display: none;">
+            <div id="panelInner">
+                <div id="header">
+                    <h3>Questions</h3>
+                </div>
+                <div id="questionsBody">
+                    <ul id="questionsUl">
+                        
+                    </ul>
+                    <button class="btn btn-danger homeBtn" onclick="homePage()">Done</button>
+                </div>
+                <div id="addBtnDiv">
+                    <button id="addBtn" onclick="addQuestion()" class="btn btn-success fa fa-plus panelBtn"></button>
+                    <button id="delAllBtn" onclick="DelAll()" class="btn btn-danger fa fa-trash panelBtn"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===============Home Page============== -->
+        <button class="btn btn-success startBtn" id="startBtn" onclick="startQuiz()">Start Quiz</button>
+        <button class="btn btn-success adminBtn" id="adminBtn" onclick="adminPanel()">Admin Panel</button>
+        
+        <!-- ===============Quiz Body============== -->
+        <div id="mainBody" style="display: none;">
+            <button class="btn btn-danger exitBtn" id="exitBtn" onclick="appendResult()">Finish Quiz</button>
+            <div id="quiz">
+                <div id="quizHeader"></div>
+                <div id="quizBody"></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
